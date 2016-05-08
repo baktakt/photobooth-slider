@@ -56,7 +56,14 @@ module.exports = function(grunt) {
           script: 'app.js'
         }
       }
-    }
+    },
+    copy: {
+      main: {
+        expand: true,
+        src: 'src/fonts/*',
+        dest: 'public/css/fonts/',
+      },
+    },
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -65,10 +72,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-express-server');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('rebuild', ['sass', 'concat', 'uglify', 'cssmin']);
+  grunt.registerTask('rebuild', ['copy','sass', 'concat', 'uglify', 'cssmin']);
   grunt.registerTask('dev', ['rebuild', 'express', 'watch']);
-  grunt.registerTask('default', ['sass', 'concat', 'uglify', 'cssmin']);
+  grunt.registerTask('default', ['copy','sass', 'concat', 'uglify', 'cssmin']);
 
 
 };
