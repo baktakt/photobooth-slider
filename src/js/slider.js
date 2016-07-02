@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  $('.slick-slide, .img-holder, .slick-track').height($(window).height());
   $('#slickcontent').slick({
       fade: true,
       autoplay: true,
@@ -14,5 +15,10 @@ $(document).ready(function() {
     if(eventCode) {
       window.location.href = '/' + eventCode;
     }
+  });
+
+
+  $(window).resize(function() {
+    $('.slick-slide, .img-holder, .slick-track').height($(window).height());
   });
 });

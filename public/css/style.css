@@ -234,9 +234,9 @@ table {
       color: black;
       opacity: 0.75; }
 
-.slideshow {
+body.slideshow {
   background-color: #000; }
-  .slideshow #slickcontent div.slick-track div {
+  body.slideshow #slickcontent div.slick-track div {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center; }
