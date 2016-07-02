@@ -6,4 +6,10 @@ $(document).ready(function() {
       pauseOnHover: false,
       speed: 1000,
   });
+  $('#open-slideshow').click(function () {
+    var eventCode = $('#eventcode').val();
+    if(eventCode) {
+      window.location.href = '/' + eventCode;
+    }
+  });
 });

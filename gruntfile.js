@@ -69,11 +69,17 @@ module.exports = function(grunt) {
         src: '**',
         dest: 'public/css/fonts',
       },
-      img: {
+      loader: {
         expand: true,
         cwd: 'src/img',
         src: 'ajax-loader.gif',
         dest: 'public/css/'
+      },
+      img: {
+        expand: true,
+        cwd: 'src/img',
+        src: '**',
+        dest: 'public/images/'
       },
     },
   });

@@ -11,6 +11,9 @@ app.set('view engine', 'ejs'); // use either jade or ejs
 app.use(express.static('public'));
 
 // set routes
+app.get('/', function(req, res) {
+  res.render('index');
+});
 app.get('/:id', function(req, res) {
   var options = {
 	  url: 'https://hipstaapi.azurewebsites.net/event/' + req.params.id + '/stream',
@@ -22,9 +25,11 @@ app.get('/:id', function(req, res) {
 	function callback(error, response, body) {
 	  if (!error && response.statusCode == 200) {
 	    var data = JSON.parse(body);
-      console.log(data);
-	    res.render('index', data);
+	    res.render('slideshow', data);
 	  }
+    else {
+      res.render('index');
+    }
 	}
 
 	request(options, callback);
