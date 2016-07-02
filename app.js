@@ -1,6 +1,9 @@
 // set variables for environment
 var express = require('express');
 var app = express();
+var http = require('http');
+var server = http.createServer(app).listen(process.env.PORT || 4000);
+var io = require('socket.io')(server);
 var path = require('path');
 var request = require('request');
 
@@ -15,6 +18,7 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 app.get('/:id', function(req, res) {
+  var data;
   var options = {
 	  url: 'https://hipstaapi.azurewebsites.net/event/' + req.params.id + '/stream',
 	  headers: {
@@ -24,7 +28,7 @@ app.get('/:id', function(req, res) {
 
 	function callback(error, response, body) {
 	  if (!error && response.statusCode == 200) {
-	    var data = JSON.parse(body);
+	    data = JSON.parse(body);
 	    res.render('slideshow', data);
 	  }
     else {
@@ -32,9 +36,27 @@ app.get('/:id', function(req, res) {
     }
 	}
 
-	request(options, callback);
+  function pollCallback(error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var newData = JSON.parse(body);
+      if(newData.images.length>data.images.length) {
+        console.log('sending reload to browser');
+        io.emit('reload');
+      }
+    }
+  }
+
+  function pollForNewImages() {
+    request(options, pollCallback);
+  }
+  setInterval(() => pollForNewImages(), 10000);
+
+  request(options, callback);
 });
 
-// Set server port
-app.listen(process.env.PORT || 4000);
+io.on('connection', (socket) => {
+  console.log('Client connected');
+  socket.on('disconnect', () => console.log('Client disconnected'));
+});
+
 console.log('server is running on port' +  process.env.PORT || 4000);

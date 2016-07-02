@@ -17,6 +17,11 @@ $(document).ready(function() {
     }
   });
 
+  var socket = io();
+  socket.on('reload', function() {
+    window.location.reload();
+  });
+
 
   $(window).resize(function() {
     $('.slick-slide, .img-holder, .slick-track').height($(window).height());
