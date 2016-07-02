@@ -5,6 +5,9 @@ $(document).ready(function() {
       autoplaySpeed: 5000,
       pauseOnHover: false,
       speed: 1000,
+      dots: false,
+      prevArrow: false,
+      nextArrow: false
   });
   $('#open-slideshow').click(function () {
     var eventCode = $('#eventcode').val();

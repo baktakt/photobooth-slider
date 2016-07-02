@@ -1,9 +1,12 @@
-#slickcontent {
-	div.slick-track {
-		div {
-			background-size: cover;
-			background-repeat: no-repeat;
-			background-position: center;	
+.slideshow {
+	background-color: #000;
+	#slickcontent {
+		div.slick-track {
+			div {
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center;
+			}
 		}
 	}
 }

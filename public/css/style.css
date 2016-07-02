@@ -234,10 +234,12 @@ table {
       color: black;
       opacity: 0.75; }
 
-#slickcontent div.slick-track div {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center; }
+.slideshow {
+  background-color: #000; }
+  .slideshow #slickcontent div.slick-track div {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; }
 
 body.startpage {
   background-image: url("../images/forrest.jpg");
