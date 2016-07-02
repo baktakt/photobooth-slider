@@ -20,7 +20,8 @@
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-sass": "^1.2.0"
+    "grunt-sass": "^1.2.0",
+    "request": "^2.72.0"
   },
   "devDependencies": {
     "grunt-cli": "^1.2.0",

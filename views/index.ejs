@@ -5,10 +5,9 @@
 </head>
 <body>
 <div id="slickcontent">
-  <div style="background-image: url('http://lorempixel.com/1000/1000/nightlife')"></div>
-  <div style="background-image: url('http://lorempixel.com/1000/1000/sports')"></div>
-  <div style="background-image: url('http://lorempixel.com/1000/1000/cats')"></div>
-  <div style="background-image: url('http://lorempixel.com/1000/1000/city')"></div>
+    <% images.forEach(function(image) { %>
+        <div style="background-image: url('<%= image.imageUrl %>'"></div>
+    <% }); %>
 </div>
 <script type="text/javascript" src="scripts/vendor.min.js"></script>
 <script type="text/javascript" src="scripts/main.min.js"></script>
