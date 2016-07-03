@@ -5,11 +5,11 @@
 </head>
 <body class="slideshow">
 <div id="slickcontent">
-    <% images.forEach(function(image) { %>
+    <% data.images.forEach(function(image) { %>
       <div class="slide">
         <div class="gallery-wrapper">
           <div class="gallery">
-            <img src="<%= image.imageUrl %>" alt="" />
+            <img data-lazy="<%= image.imageUrl %>" alt="" />
           </div>
         </div>
 
@@ -17,7 +17,7 @@
           <div class="meta-info">
             <img src="images/logo.png" alt="" class="logo" />
             <span class="event-name">#Hipstamomments20016</span>
-            <span class="event-code">Event code: <span>FNASKLEO</span></span>
+            <span class="event-code">Event code: <span><% data.eventCode %></span></span>
             <span class="hipstaroll">Download app at hipstaroll.com</span>
           </div>
 

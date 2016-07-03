@@ -8,7 +8,7 @@ $(document).ready(function() {
       dots: false,
       prevArrow: false,
       nextArrow: false,
-      lazyLoad: 'progressive'
+      lazyLoad: 'ondemand'
   });
   $('#open-slideshow').click(function () {
     var eventCode = $('#eventcode').val();
@@ -19,6 +19,6 @@ $(document).ready(function() {
 
   var socket = io();
   socket.on('reload', function() {
-    window.location.reload();
+    //window.location.reload();
   });
 });

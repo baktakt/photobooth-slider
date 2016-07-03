@@ -7,6 +7,8 @@ var io = require('socket.io')(server);
 var path = require('path');
 var request = require('request');
 
+var eventCode;
+
 // views as directory for all template files
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs'); // use either jade or ejs
@@ -19,8 +21,9 @@ app.get('/', function(req, res) {
 });
 app.get('/:id', function(req, res) {
   var data;
+  eventCode = req.params.id;
   var options = {
-	  url: 'https://hipstaapi.azurewebsites.net/event/' + req.params.id + '/stream',
+	  url: 'https://hipstaapi.azurewebsites.net/event/' + eventCode + '/stream',
 	  headers: {
 	    'X-ApiVersion': 3
 	  }
@@ -29,7 +32,7 @@ app.get('/:id', function(req, res) {
 	function callback(error, response, body) {
 	  if (!error && response.statusCode == 200) {
 	    data = JSON.parse(body);
-	    res.render('slideshow', data);
+	    res.render('slideshow', { 'data': data, 'eventCode': eventCode });
 	  }
     else {
       res.render('index');
