@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  $('.slick-slide, .img-holder, .slick-track').height($(window).height());
   $('#slickcontent').slick({
       fade: true,
       autoplay: true,
@@ -8,7 +7,8 @@ $(document).ready(function() {
       speed: 1000,
       dots: false,
       prevArrow: false,
-      nextArrow: false
+      nextArrow: false,
+      lazyLoad: 'progressive'
   });
   $('#open-slideshow').click(function () {
     var eventCode = $('#eventcode').val();
@@ -20,10 +20,5 @@ $(document).ready(function() {
   var socket = io();
   socket.on('reload', function() {
     window.location.reload();
-  });
-
-
-  $(window).resize(function() {
-    $('.slick-slide, .img-holder, .slick-track').height($(window).height());
   });
 });
