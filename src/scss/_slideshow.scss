@@ -74,4 +74,33 @@ body.slideshow {
 	.comments .name {
 		margin-bottom: 10px;
 	}
+
+	$break-small: 780px;
+	$break-large: 1040px;
+
+	@media screen and (max-width: $break-large) {
+		.meta-info .logo {
+			width: 40px;
+			height: 40px;
+		}
+		.meta-info .event-name {
+			font-size: 2em;
+		}
+		.meta-info .event-code {
+			font-size: 1.5em;
+			margin: 0;
+		}
+		.meta-info .hipstaroll {
+			font-size: 1.2em;
+		}
+	}
+	@media screen and (max-width: $break-small) {
+		.gallery-wrapper, .meta-wrapper {
+			width: 100%;
+		}
+		.comments-wrapper, .meta-info {
+			margin-left: 0;
+			padding-top: 0;
+		}
+	}
 }

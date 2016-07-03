@@ -294,6 +294,23 @@ body.slideshow {
     font-size: 0.9em; }
   body.slideshow .comments .name {
     margin-bottom: 10px; }
+  @media screen and (max-width: 1040px) {
+    body.slideshow .meta-info .logo {
+      width: 40px;
+      height: 40px; }
+    body.slideshow .meta-info .event-name {
+      font-size: 2em; }
+    body.slideshow .meta-info .event-code {
+      font-size: 1.5em;
+      margin: 0; }
+    body.slideshow .meta-info .hipstaroll {
+      font-size: 1.2em; } }
+  @media screen and (max-width: 780px) {
+    body.slideshow .gallery-wrapper, body.slideshow .meta-wrapper {
+      width: 100%; }
+    body.slideshow .comments-wrapper, body.slideshow .meta-info {
+      margin-left: 0;
+      padding-top: 0; } }
 
 body.startpage {
   background-image: url("../images/forrest.jpg");
