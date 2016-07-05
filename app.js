@@ -23,21 +23,26 @@ app.get('/:id', function(req, res) {
   var data;
   eventCode = req.params.id;
   var options = {
-	  url: 'https://hipstaapi.azurewebsites.net/event/' + eventCode + '/stream',
+	  url: 'https://hipstaapi.azurewebsites.net/event/' + eventCode + '/images',
 	  headers: {
 	    'X-ApiVersion': 3
 	  }
 	};
 
-	function callback(error, response, body) {
-	  if (!error && response.statusCode == 200) {
-	    data = JSON.parse(body);
-	    res.render('slideshow', { 'data': data, 'eventCode': eventCode });
-	  }
-    else {
-      res.render('index');
+  function callback(eventCode) {
+    return function(error, response, body) {
+      if (!error && response.statusCode == 200) {
+        data = JSON.parse(body);
+        data.eventCode = eventCode;
+        res.render('slideshow', { 'data': data });
+      }
+      else {
+        res.render('index');
+      }
     }
-	}
+  }
+
+  request(options, callback(eventCode));
 
   function pollCallback(error, response, body) {
     if (!error && response.statusCode == 200) {
@@ -53,8 +58,6 @@ app.get('/:id', function(req, res) {
     request(options, pollCallback);
   }
   setInterval(() => pollForNewImages(), 10000);
-
-  request(options, callback);
 });
 
 io.on('connection', (socket) => {

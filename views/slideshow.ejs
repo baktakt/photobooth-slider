@@ -16,27 +16,20 @@
         <div class="meta-wrapper">
           <div class="meta-info">
             <img src="images/logo.png" alt="" class="logo" />
-            <span class="event-name">#Hipstamomments20016</span>
-            <span class="event-code">Event code: <span><% data.eventCode %></span></span>
+            <span class="event-name"><%= data.eventName %></span>
+            <span class="event-code">Event code: <span><%= data.eventCode %></span></span>
             <span class="hipstaroll">Download app at hipstaroll.com</span>
           </div>
 
           <div class="comments-wrapper fadeIn">
+            <% image.comments.forEach(function(comment) { %>
             <div class="comments">
               <span class="time">1 week ago</span>
-              <span class="name">Johan Dyrssen</span>
-              <span class="comment">Najs!!!!</span>
+              <span class="name"><%= comment.userAlias %></span>
+              <span class="comment"><%= comment.message %></span>
             </div>
-            <div class="comments">
-              <span class="time">1 hour ago</span>
-              <span class="name">Johan Dyrssen</span>
-              <span class="comment">Najs!!!!</span>
-            </div>
-            <div class="comments">
-              <span class="time">Just now</span>
-              <span class="name">Johan Dyrssen</span>
-              <span class="comment">Najs!!!!</span>
-            </div>
+            <% }); %>
+
           </div>
         </div>
       </div>
