@@ -50,6 +50,7 @@ app.get('/:id', function(req, res) {
       if(newData.images.length>data.images.length) {
         console.log('sending reload to browser');
         io.emit('reload');
+        data = newData;
       }
     }
   }
@@ -57,7 +58,7 @@ app.get('/:id', function(req, res) {
   function pollForNewImages() {
     request(options, pollCallback);
   }
-  setInterval(() => pollForNewImages(), 10000);
+  setInterval(() => pollForNewImages(), 180000);
 });
 
 io.on('connection', (socket) => {

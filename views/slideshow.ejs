@@ -24,11 +24,16 @@
           <div class="comments-wrapper fadeIn">
             <% image.comments.forEach(function(comment) { %>
             <div class="comments">
-              <span class="time">1 week ago</span>
+              <span class="time"><%= comment.created %></span>
               <span class="name"><%= comment.userAlias %></span>
               <span class="comment"><%= comment.message %></span>
             </div>
             <% }); %>
+            <div class="comments">
+              <span class="time"><%= image.created %></span>
+              <span class="name"><%= image.userAlias %></span>
+              <span class="comment"><%= image.description %></span>
+            </div>
 
           </div>
         </div>

@@ -19,6 +19,6 @@ $(document).ready(function() {
 
   var socket = io();
   socket.on('reload', function() {
-    //window.location.reload();
+    window.location.reload();
   });
 });
