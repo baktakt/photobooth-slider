@@ -44,26 +44,25 @@ app.get('/:id', function(req, res) {
 
   request(options, callback(eventCode));
 
-  function pollCallback(error, response, body) {
-    if (!error && response.statusCode == 200) {
-      var newData = JSON.parse(body);
-      if(newData.images.length>data.images.length) {
-        console.log('sending reload to browser');
-        io.emit('reload');
-        data = newData;
-      }
-    }
-  }
-
-  function pollForNewImages() {
-    request(options, pollCallback);
-  }
-  //setInterval(() => pollForNewImages(), 180000);
 });
 
 io.on('connection', (socket) => {
-  console.log('Client connected');
-  socket.on('disconnect', () => console.log('Client disconnected'));
+  socket.on ('poll', function (eventCode) {
+    pollForNewImages(eventCode, socket.id);
+  });
 });
+
+function pollForNewImages(eventCode, socketId) {
+  options = {
+    url: 'https://hipstaapi.azurewebsites.net/event/' + eventCode + '/images',
+    headers: {
+      'X-ApiVersion': 3
+    }
+  };
+  request(options, function(error, response, body) {
+    var newData = JSON.parse(body);
+    io.to(socketId).emit('newdata', newData);
+  });
+}
 
 console.log('server is running on port' +  process.env.PORT || 4000);

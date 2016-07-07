@@ -18,7 +18,20 @@ $(document).ready(function() {
   });
 
   var socket = io();
-  socket.on('reload', function() {
-    window.location.reload();
+  setInterval(pollForNewImages, 180000);
+
+  socket.on('newdata', function(data) {
+    var numberOfImages = $('.slick-slide').length;
+    if(numberOfImages < data.images.length) {
+      window.location.reload();
+    }
   });
+
+  function pollForNewImages() {
+    var eventCode = $('#eventcode').val();
+    if(eventCode) {
+      socket.emit('poll', eventCode);
+    }
+  };
+  pollForNewImages();
 });
