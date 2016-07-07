@@ -58,7 +58,7 @@ app.get('/:id', function(req, res) {
   function pollForNewImages() {
     request(options, pollCallback);
   }
-  setInterval(() => pollForNewImages(), 180000);
+  //setInterval(() => pollForNewImages(), 180000);
 });
 
 io.on('connection', (socket) => {

@@ -4,6 +4,7 @@
 <% include partials/header %>
 </head>
 <body class="slideshow">
+<input type="hidden" id="eventcode" value="<%= data.eventCode %>">
 <div id="slickcontent">
     <% data.images.forEach(function(image) { %>
       <div class="slide">
