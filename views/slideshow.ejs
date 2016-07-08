@@ -5,6 +5,7 @@
 </head>
 <body class="slideshow">
 <input type="hidden" id="eventcode" value="<%= data.eventCode %>">
+<input type="hidden" id="firstimage" value="<%= data.images[0].imageUrl %>">
 <div id="slickcontent">
     <% data.images.forEach(function(image) { %>
       <div class="slide">

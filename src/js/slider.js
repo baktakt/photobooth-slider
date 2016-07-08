@@ -22,7 +22,8 @@ $(document).ready(function() {
 
   socket.on('newdata', function(data) {
     var numberOfImages = $('.slick-slide').length;
-    if(numberOfImages < data.images.length) {
+    var imageUrlOfFirstSlide = $('#firstimage').val();
+    if(imageUrlOfFirstSlide !== data.images[0].imageUrl) {
       window.location.reload();
     }
   });
