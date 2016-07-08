@@ -316,6 +316,11 @@ body.startpage {
   background-image: url("../images/forrest.jpg");
   background-repeat: no-repeat;
   background-size: cover; }
+  body.startpage #hipstalogo {
+    width: 40px;
+    position: absolute;
+    top: 30px;
+    left: 30px; }
   body.startpage div.eventcode-wrapper {
     width: 100%; }
     body.startpage div.eventcode-wrapper div.eventcode-input {

@@ -16,6 +16,15 @@ $(document).ready(function() {
       window.location.href = '/' + eventCode;
     }
   });
+  $('input').keypress(function (e) {
+    if (e.which == 13) {
+      var eventCode = $('#eventcode').val();
+      if(eventCode) {
+        window.location.href = '/' + eventCode;
+      }
+      return false;    //<---- Add this line
+    }
+  });
 
   var socket = io();
   setInterval(pollForNewImages, 180000);
