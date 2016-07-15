@@ -245,6 +245,9 @@ body.slideshow {
   padding: 0;
   margin: 0;
   font-size: 1em; }
+  body.slideshow .slick-slider {
+    height: 100%;
+    overflow-y: hidden; }
   body.slideshow .gallery-wrapper, body.slideshow .meta-wrapper {
     width: 50%;
     float: left; }

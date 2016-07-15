@@ -9,7 +9,10 @@ body.slideshow {
 	padding: 0;
 	margin: 0;
 	font-size: 1em;
-
+	.slick-slider {
+		height: 100%;
+		overflow-y: hidden;
+	}
 	.gallery-wrapper, .meta-wrapper {
 		width: 50%;
 		float: left;
