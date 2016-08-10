@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -236,12 +237,12 @@ table {
 
 body, html {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  font-family: arial; }
 
 body.slideshow {
   background: #000;
   color: #fff;
-  font-family: arial;
   padding: 0;
   margin: 0;
   font-size: 1em; }
@@ -262,21 +263,31 @@ body.slideshow {
     width: 100%;
     height: 100%; }
   body.slideshow .meta-info .logo {
-    width: 70px;
-    height: 70px;
-    display: block; }
+    width: 40px;
+    height: 40px;
+    display: block;
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    opacity: 0.7; }
   body.slideshow .meta-info .event-name {
     text-transform: lowercase;
-    font-size: 3em;
+    font-size: 5em;
     display: block;
     margin: 20px 0; }
   body.slideshow .meta-info .event-code {
-    font-size: 2em;
+    font-size: 1.2em;
+    margin: 0;
+    color: #ccc; }
+    body.slideshow .meta-info .event-code span {
+      color: #fff; }
+  body.slideshow .meta-info .de {
+    font-size: 3em;
     color: #999;
     margin: 20px 0;
     display: block; }
   body.slideshow .meta-info .hipstaroll {
-    font-size: 1.2em;
+    font-size: 2em;
     color: #999;
     display: block; }
   body.slideshow .comments-wrapper, body.slideshow .meta-info {
@@ -285,18 +296,22 @@ body.slideshow {
     padding-top: 0; }
   body.slideshow .comments {
     display: block;
-    background: #111;
+    border-bottom: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 10px; }
-  body.slideshow .commetns .time,
-  body.slideshow .comments .name,
-  body.slideshow .comments .comment {
-    display: block; }
-  body.slideshow .comments .time {
-    color: #999;
-    font-size: 0.9em; }
-  body.slideshow .comments .name {
-    margin-bottom: 10px; }
+    body.slideshow .comments .time,
+    body.slideshow .comments .name,
+    body.slideshow .comments .comment {
+      display: block;
+      color: #ccc; }
+    body.slideshow .comments .time {
+      font-size: 1.0em; }
+    body.slideshow .comments .name {
+      margin-bottom: 10px;
+      font-style: italic; }
+    body.slideshow .comments .comment {
+      font-size: 1.5em;
+      color: #fff; }
   @media screen and (max-width: 1040px) {
     body.slideshow .meta-info .logo {
       width: 40px;
@@ -304,7 +319,7 @@ body.slideshow {
     body.slideshow .meta-info .event-name {
       font-size: 2em; }
     body.slideshow .meta-info .event-code {
-      font-size: 1.5em;
+      font-size: 1.2em;
       margin: 0; }
     body.slideshow .meta-info .hipstaroll {
       font-size: 1.2em; } }
