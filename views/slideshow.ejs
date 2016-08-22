@@ -15,20 +15,9 @@
           </div>
         </div>
 
+        <% if(image.description) { %>
         <div class="meta-wrapper">
-          <div class="meta-info">
-            <img src="images/logo.png" alt="" class="logo" />
-            <span class="event-name"><%= data.eventName %></span>
-            <span class="event-code">Use event code <span><%= data.eventCode %></span> for logging in.</span>
-          </div>
-
           <div class="comments-wrapper fadeIn">
-            <% image.comments.forEach(function(comment) { %>
-            <div class="comments">
-              <span class="name"><strong><%= comment.userAlias %></strong> | <%= comment.created %></span>
-              <span class="comment"><%= comment.message %></span>
-            </div>
-            <% }); %>
             <div class="comments">
               <span class="name"><strong><%= image.userAlias %></strong> | <%= image.created %></span>
               <span class="comment"><%= image.description %></span>
@@ -36,9 +25,11 @@
 
           </div>
         </div>
+        <% } %>
       </div>
     <% }); %>
 </div>
+<img src="/images/logo.png" class="logo">
 </body>
 <% include partials/footer %>
 </html>

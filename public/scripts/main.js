@@ -1,7 +1,9 @@
 $(document).ready(function() {
   $('#slickcontent').slick({
-      fade: true,
-      autoplay: true,
+      slidesToShow: 2,
+      slidesToScroll: 2,
+      fade: false,
+      autoplay: false,
       autoplaySpeed: 4000,
       pauseOnHover: false,
       speed: 1000,

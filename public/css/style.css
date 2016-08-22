@@ -249,27 +249,23 @@ body.slideshow {
   body.slideshow .slick-slider {
     height: 100%;
     overflow-y: hidden; }
-  body.slideshow .gallery-wrapper, body.slideshow .meta-wrapper {
-    width: 50%;
-    float: left; }
-  body.slideshow .gallery-wrapper {
-    width: 55%; }
+  body.slideshow .gallery-wrapper img {
+    width: 100%; }
   body.slideshow .meta-wrapper {
-    width: 45%; }
+    position: relative;
+    top: -70px;
+    background-color: #000;
+    opacity: 0.5; }
   body.slideshow .gallery, body.slideshow .meta-info, body.slideshow .comments-wrapper {
-    display: block;
-    padding: 30px; }
-  body.slideshow .gallery img {
-    width: 100%;
-    height: 100%; }
-  body.slideshow .meta-info .logo {
-    width: 40px;
-    height: 40px;
+    display: block; }
+  body.slideshow .logo {
+    width: 50px;
+    height: 50px;
     display: block;
     position: absolute;
-    left: 50px;
-    top: 50px;
-    opacity: 0.7; }
+    left: 20px;
+    top: 20px;
+    opacity: 0.9; }
   body.slideshow .meta-info .event-name {
     text-transform: lowercase;
     font-size: 5em;
@@ -290,13 +286,10 @@ body.slideshow {
     font-size: 2em;
     color: #999;
     display: block; }
-  body.slideshow .comments-wrapper, body.slideshow .meta-info {
-    margin-left: -30px; }
   body.slideshow .comments-wrapper {
     padding-top: 0; }
   body.slideshow .comments {
     display: block;
-    border-bottom: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 10px; }
     body.slideshow .comments .time,
