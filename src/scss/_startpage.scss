@@ -1,0 +1,32 @@
+body.startpage {
+		background-image: url('../images/forrest.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		#hipstalogo {
+			width: 40px;
+			position: absolute;
+			top: 30px;
+			left: 30px;
+		}
+
+		div.eventcode-wrapper {
+			width: 100%;
+
+			div.eventcode-input {
+				width: 200px;
+				margin: 200px auto;
+				input,
+				button {
+					width: 100%;
+				}
+				input[type=text],button {
+					font-family: 'Helvetica';
+				    padding: 12px 20px;
+				    margin: 8px 0;
+				    box-sizing: border-box;
+						font-size: 16px;
+						text-align: center;
+				}
+			}
+		}
+}

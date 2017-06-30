@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<% include partials/header %>
+</head>
+<body class="slideshow">
+<input type="hidden" id="eventcode" value="<%= data.eventCode %>">
+<input type="hidden" id="firstimage" value="<%= data.images[0].imageUrl %>">
+<div id="slickcontent">
+    <% data.images.forEach(function(image) { %>
+      <div class="slide">
+        <div class="gallery-wrapper">
+          <div class="gallery">
+            <img data-lazy="<%= image.imageUrl %>" alt="" />
+          </div>
+        </div>
+
+        <% if(image.description) { %>
+        <div class="meta-wrapper">
+          <div class="comments-wrapper fadeIn">
+            <div class="comments">
+              <span class="name"><strong><%= image.userAlias %></strong> | <%= image.created %></span>
+              <span class="comment"><%= image.description %></span>
+            </div>
+
+          </div>
+        </div>
+        <% } %>
+      </div>
+    <% }); %>
+</div>
+<img src="/images/logo.png" class="logo">
+</body>
+<% include partials/footer %>
+</html>

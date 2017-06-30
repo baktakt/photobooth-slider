@@ -27,15 +27,20 @@ module.exports = function(grunt) {
       }
     },
     concat: {
-      dist: {
-        src: ['src/js/**/*.js'],
+      main: {
+        src: ['src/js/*.js'],
         dest: 'public/scripts/main.js',
+      },
+      vendor: {
+        src: ['src/js/vendor/*.js'],
+        dest: 'public/scripts/vendor.js',
       },
     },
     uglify: {
       dist: {
         files: {
           'public/scripts/main.min.js': ['public/scripts/main.js'],
+          'public/scripts/vendor.min.js': ['public/scripts/vendor.js'],
         }
       }
     },
@@ -56,7 +61,27 @@ module.exports = function(grunt) {
           script: 'app.js'
         }
       }
-    }
+    },
+    copy: {
+      main: {
+        expand: true,
+        cwd: 'src/fonts',
+        src: '**',
+        dest: 'public/css/fonts',
+      },
+      loader: {
+        expand: true,
+        cwd: 'src/img',
+        src: 'ajax-loader.gif',
+        dest: 'public/css/'
+      },
+      img: {
+        expand: true,
+        cwd: 'src/img',
+        src: '**',
+        dest: 'public/images/'
+      },
+    },
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -65,10 +90,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-express-server');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.registerTask('rebuild', ['sass', 'concat', 'uglify', 'cssmin']);
   grunt.registerTask('dev', ['rebuild', 'express', 'watch']);
-  grunt.registerTask('default', ['sass', 'concat', 'uglify', 'cssmin']);
+  grunt.registerTask('default', ['copy','sass', 'concat', 'uglify', 'cssmin']);
 
 
 };

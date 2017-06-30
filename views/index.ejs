@@ -1,21 +1,16 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Photo booth slider</title>
-<link rel="stylesheet" type="text/css" href="css/style.min.css" />
+  <% include partials/header %>
 </head>
-<body>
-<div id="slickcontent" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
-  <div><h3>1</h3></div>
-  <div><h3>2</h3></div>
-  <div><h3>3</h3></div>
-  <div><h3>4</h3></div>
-  <div><h3>5</h3></div>
-  <div><h3>6</h3></div>
+<body class="startpage">
+<img src="images/hipstaroll-logo-200.png" id="hipstalogo">
+<div class="eventcode-wrapper">
+  <div class="eventcode-input">
+    <input type="text" id="eventcode" placeholder="Enter your event code" />
+    <button id="open-slideshow">Start slideshow</button>
+  </div>
 </div>
-<script type="text/javascript" src="scripts/main.min.js"></script>
-<script type="text/javascript">
-	$('#slickcontent').slick();
-</script>
 </body>
-
+<% include partials/footer %>
 </html>
