@@ -1,7 +1,7 @@
 $(document).ready(function() {
   $('#slickcontent').slick({
       slidesToShow: 2,
-      slidesToScroll: 2,
+      slidesToScroll: 1,
       fade: false,
       autoplay: true,
       autoplaySpeed: 5000,
@@ -10,9 +10,8 @@ $(document).ready(function() {
       dots: false,
       prevArrow: false,
       nextArrow: false,
-      lazyLoad: 'ondemand',
       pauseOnHover: false,
-      pauseOnFocue: false
+      pauseOnFocus: false,
   });
   $('#open-slideshow').click(function () {
     var eventCode = $('#eventcode').val();
